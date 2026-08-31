@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizIQ - Interactive Quiz Platform</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .start-btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .features {
+            background: white;
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 280px;
+            padding: 30px;
+            background: #f5f7fb;
+            border-radius: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">QuizIQ</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Quizzes</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Test Your Knowledge.</h1>
+
+            <p>
+                Welcome to QuizIQ – an interactive quiz platform
+                that helps students test their knowledge,
+                analyze their performance and improve smarter.
+            </p>
+
+            <button class="start-btn" onclick="startQuiz()">
+                Start Quiz
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <h2>Why QuizIQ?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📝 Interactive Quiz</h3>
+                <p>
+                    Attend engaging quizzes with different
+                    types of questions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📊 Performance Analysis</h3>
+                <p>
+                    Analyze your score, accuracy,
+                    time and weak areas.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Smart Recommendation</h3>
+                <p>
+                    Get personalized learning suggestions
+                    based on your performance.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 QuizIQ | Interactive Quiz Platform</p>
+    </footer>
+
+    <script>
+        function startQuiz() {
+            alert("Quiz module coming soon!");
+        }
+    </script>
+
+</body>
+</html>
