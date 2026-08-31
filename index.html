@@ -15,13 +15,13 @@
         body {
             font-family: Arial, sans-serif;
             background: #f5f7fb;
-            color: #222;
+            color: #1f2937;
         }
 
         header {
             background: #111827;
             color: white;
-            padding: 20px 8%;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,118 +36,239 @@
             color: white;
             text-decoration: none;
             margin-left: 25px;
+            cursor: pointer;
         }
 
         .hero {
-            min-height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
-        .hero-content {
-            max-width: 750px;
-        }
-
-        h1 {
-            font-size: 50px;
-            margin-bottom: 20px;
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
         .hero p {
             font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 30px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
         }
 
-        .start-btn {
-            padding: 15px 35px;
+        .banner {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        button {
             border: none;
+            cursor: pointer;
+        }
+
+        .start-btn,
+        .next-btn {
+            padding: 13px 28px;
             border-radius: 8px;
+            font-size: 16px;
             background: #2563eb;
             color: white;
-            font-size: 17px;
-            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .start-btn:hover,
+        .next-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .quiz-section {
+            display: none;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 22px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9fafb;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .option:hover {
+            background: #eef2ff;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .result h2 {
+            margin-bottom: 20px;
+        }
+
+        .result h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
         .features {
             background: white;
-            padding: 60px 8%;
+            padding: 50px 8%;
             text-align: center;
-        }
-
-        .features h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
         }
 
         .cards {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .card {
-            width: 280px;
-            padding: 30px;
+            width: 250px;
+            padding: 25px;
             background: #f5f7fb;
-            border-radius: 15px;
+            border-radius: 12px;
         }
 
         .card h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .card p {
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         footer {
+            margin-top: 40px;
+            padding: 25px;
+            text-align: center;
             background: #111827;
             color: white;
-            text-align: center;
-            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .quiz-section {
+                margin: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <img src="quiziq-banner.png" alt="QuizIQ Banner" style="width:100%; max-width:1000px; display:block; margin:20px auto;">
 
+    <!-- HEADER -->
     <header>
         <div class="logo">QuizIQ</div>
 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Quizzes</a>
-            <a href="#">About</a>
+            <a onclick="showHome()">Home</a>
+            <a onclick="startQuiz()">Quiz</a>
+            <a href="#features">About</a>
         </nav>
     </header>
 
-    <section class="hero">
 
-        <div class="hero-content">
+    <!-- HOME PAGE -->
+    <section class="hero" id="home">
 
-            <h1>Test Your Knowledge.</h1>
+        <h1>Test Your Knowledge. Improve Smarter.</h1>
 
-            <p>
-                Welcome to QuizIQ – an interactive quiz platform
-                that helps students test their knowledge,
-                analyze their performance and improve smarter.
-            </p>
+        <p>
+            Welcome to QuizIQ — an interactive quiz platform
+            designed to test your knowledge and help you improve.
+        </p>
 
-            <button class="start-btn" onclick="startQuiz()">
-                Start Quiz
-            </button>
+        <img src="quiziq-banner.png"
+             alt="QuizIQ Interactive Quiz Platform"
+             class="banner">
 
-        </div>
+        <button class="start-btn" onclick="startQuiz()">
+            Start Quiz
+        </button>
 
     </section>
 
-    <section class="features">
+
+    <!-- QUIZ PAGE -->
+    <section class="quiz-section" id="quiz">
+
+        <div class="quiz-header">
+            <span id="questionNumber">Question 1 / 5</span>
+            <span id="score">Score: 0</span>
+        </div>
+
+        <div class="question" id="question"></div>
+
+        <div id="options"></div>
+
+        <button class="next-btn" onclick="nextQuestion()">
+            Next
+        </button>
+
+    </section>
+
+
+    <!-- RESULT PAGE -->
+    <section class="result" id="result">
+
+        <h2>🎉 Quiz Completed!</h2>
+
+        <h1 id="finalScore">0 / 5</h1>
+
+        <p id="performance"></p>
+
+        <button class="start-btn" onclick="startQuiz()">
+            Try Again
+        </button>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
 
         <h2>Why QuizIQ?</h2>
 
@@ -156,24 +277,28 @@
             <div class="card">
                 <h3>📝 Interactive Quiz</h3>
                 <p>
-                    Attend engaging quizzes with different
-                    types of questions.
+                    Test your knowledge through engaging questions.
                 </p>
             </div>
 
             <div class="card">
                 <h3>📊 Performance Analysis</h3>
                 <p>
-                    Analyze your score, accuracy,
-                    time and weak areas.
+                    Understand your score and accuracy.
                 </p>
             </div>
 
             <div class="card">
-                <h3>🧠 Smart Recommendation</h3>
+                <h3>🧠 Smart Learning</h3>
                 <p>
-                    Get personalized learning suggestions
-                    based on your performance.
+                    Identify areas where you need improvement.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🏆 Gamification</h3>
+                <p>
+                    Make learning more interesting and enjoyable.
                 </p>
             </div>
 
@@ -181,14 +306,251 @@
 
     </section>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 QuizIQ | Interactive Quiz Platform</p>
+        © 2026 QuizIQ | Interactive Quiz Platform
     </footer>
 
+
+    <!-- JAVASCRIPT -->
     <script>
+
+        const questions = [
+
+            {
+                question:
+                "Which programming language is commonly used for Artificial Intelligence and Machine Learning?",
+
+                options: [
+                    "HTML",
+                    "Python",
+                    "CSS",
+                    "SQL"
+                ],
+
+                answer: "Python"
+            },
+
+            {
+                question:
+                "What does DBMS stand for?",
+
+                options: [
+                    "Data Backup Management System",
+                    "Database Management System",
+                    "Digital Base Management System",
+                    "Data Binary Management System"
+                ],
+
+                answer: "Database Management System"
+            },
+
+            {
+                question:
+                "Which data structure follows the LIFO principle?",
+
+                options: [
+                    "Queue",
+                    "Array",
+                    "Stack",
+                    "Linked List"
+                ],
+
+                answer: "Stack"
+            },
+
+            {
+                question:
+                "Which of the following is a Machine Learning technique?",
+
+                options: [
+                    "Linear Regression",
+                    "HTML",
+                    "CSS",
+                    "Bootstrap"
+                ],
+
+                answer: "Linear Regression"
+            },
+
+            {
+                question:
+                "What is the main goal of Artificial Intelligence?",
+
+                options: [
+                    "To store files",
+                    "To make machines perform tasks requiring human-like intelligence",
+                    "To design web pages only",
+                    "To increase internet speed"
+                ],
+
+                answer:
+                "To make machines perform tasks requiring human-like intelligence"
+            }
+
+        ];
+
+
+        let currentQuestion = 0;
+        let totalScore = 0;
+        let selectedAnswer = "";
+
+
         function startQuiz() {
-            alert("Quiz module coming soon!");
+
+            document.getElementById("home").style.display = "none";
+
+            document.getElementById("features").style.display = "none";
+
+            document.getElementById("result").style.display = "none";
+
+            document.getElementById("quiz").style.display = "block";
+
+            currentQuestion = 0;
+
+            totalScore = 0;
+
+            loadQuestion();
         }
+
+
+        function loadQuestion() {
+
+            selectedAnswer = "";
+
+            const q = questions[currentQuestion];
+
+            document.getElementById("questionNumber").innerText =
+                "Question " + (currentQuestion + 1) +
+                " / " + questions.length;
+
+            document.getElementById("score").innerText =
+                "Score: " + totalScore;
+
+            document.getElementById("question").innerText =
+                q.question;
+
+            const optionsDiv =
+                document.getElementById("options");
+
+            optionsDiv.innerHTML = "";
+
+
+            q.options.forEach(function(option) {
+
+                const button =
+                    document.createElement("button");
+
+                button.innerText = option;
+
+                button.className = "option";
+
+
+                button.onclick = function() {
+
+                    selectedAnswer = option;
+
+                    const allOptions =
+                        document.querySelectorAll(".option");
+
+
+                    allOptions.forEach(function(btn) {
+
+                        btn.style.background = "#f9fafb";
+
+                    });
+
+
+                    button.style.background = "#dbeafe";
+
+                };
+
+
+                optionsDiv.appendChild(button);
+
+            });
+
+        }
+
+
+        function nextQuestion() {
+
+            if (selectedAnswer === "") {
+
+                alert("Please select an answer!");
+
+                return;
+            }
+
+
+            if (
+                selectedAnswer ===
+                questions[currentQuestion].answer
+            ) {
+
+                totalScore++;
+
+            }
+
+
+            currentQuestion++;
+
+
+            if (currentQuestion < questions.length) {
+
+                loadQuestion();
+
+            } else {
+
+                showResult();
+
+            }
+
+        }
+
+
+        function showResult() {
+
+            document.getElementById("quiz").style.display =
+                "none";
+
+            document.getElementById("result").style.display =
+                "block";
+
+
+            document.getElementById("finalScore").innerText =
+                totalScore + " / " + questions.length;
+
+
+            const percentage =
+                (totalScore / questions.length) * 100;
+
+
+            document.getElementById("performance").innerText =
+                "Your accuracy is " +
+                percentage +
+                "%. Keep learning and improving!";
+
+        }
+
+
+        function showHome() {
+
+            document.getElementById("quiz").style.display =
+                "none";
+
+            document.getElementById("result").style.display =
+                "none";
+
+            document.getElementById("home").style.display =
+                "block";
+
+            document.getElementById("features").style.display =
+                "block";
+
+        }
+
     </script>
 
 </body>
